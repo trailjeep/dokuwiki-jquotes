@@ -77,10 +77,11 @@ class syntax_plugin_jquotes extends DokuWiki_Syntax_Plugin {
         $full = helper_plugin_jquotes::getCookieHTML($data['cookie']);
         $quote = strtok($full, '|');
         $cite = strtok('|');
-        $renderer->doc .= '<div ' . buildAttributes($attr) . '>';
-        $renderer->doc .= $quote;
-        $renderer->doc .= $cite;
-        $renderer->doc .= '</div>';
+
+        $renderer->doc .= '<figure ' . buildAttributes($attr) . '>';
+        $renderer->doc .= "<blockquote><p>$quote</p></blockquote>";
+        $renderer->doc .= "<figcaption>$cite</figcaption>";
+        $renderer->doc .= '</figure>';
 
         return true;
     }

@@ -7,7 +7,7 @@
  */
 
 jQuery(function () {
-    jQuery('div.plugin_jquotes').each(function () {
+    jQuery('figure.plugin_jquotes').each(function () {
         var $self = jQuery(this);
         if(!$self.data('time')) return;
         if(!$self.data('cookie')) return;
