@@ -79,21 +79,10 @@ class helper_plugin_jquotes extends DokuWiki_Plugin {
             return 'ERROR: '.$e->getMessage();
         }
 
-        //$dim = filesize($file);
-        //if($dim < 2) return "ERROR: invalid cookie file $file";
-        //mt_srand((double) microtime() * 1000000);
-        //$rnd = mt_rand(0, $dim);
-
-        //$fd = fopen($file, 'r');
-        //if(!$fd) return "ERROR: reading cookie file $file failed";
-
-        // jump to random place in file
-        //fseek($fd, $rnd);
-
 		$jsonFile = file_get_contents($file);
 		//json must already be UTF8
 		$jsonArray = json_decode($jsonFile, true);
-		if (json_last_error() !== 0) return 'JSON error: '.json_last_error_msg().$e->getMessage();
+		if (json_last_error() !== 0) return 'JSON error: '.json_last_error_msg();
 		//$i = mt_rand(0, count($jsonArray['quotes']) -1);
 		$i = array_rand($jsonArray['quotes']);
 		$quote = $jsonArray['quotes'][$i]['quote'];
