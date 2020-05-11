@@ -74,9 +74,12 @@ class syntax_plugin_jquotes extends DokuWiki_Syntax_Plugin {
             'data-time' => $data['time'],
             'data-cookie' => $data['cookie']
         );
-
+        $full = helper_plugin_jquotes::getCookieHTML($data['cookie']);
+        $quote = strtok($full, '|');
+        $cite = strtok('|');
         $renderer->doc .= '<div ' . buildAttributes($attr) . '>';
-        $renderer->doc .= helper_plugin_jquotes::getCookieHTML($data['cookie']);
+        $renderer->doc .= $quote;
+        $renderer->doc .= $cite;
         $renderer->doc .= '</div>';
 
         return true;
