@@ -1,7 +1,7 @@
-base   xfortune
+base   jquotes
 author Andreas Gohr
 email  andi@splitbrain.org
 date   2017-04-20
-name   Fortune Plugin
-desc   Displays random fortune cookies using AJAX requests
-url    http://www.dokuwiki.org/plugin:xfortune
+name   Quotations Plugin
+desc   Displays random quotations from JSON file
+url    http://www.dokuwiki.org/plugin:jquotes

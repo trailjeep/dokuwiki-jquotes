@@ -1,13 +1,13 @@
 <?php
 /**
- * Display Fortune cookies
+ * Display quotations
  *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Andreas Gohr <andi@splitbrain.org>
  */
 
 
-class syntax_plugin_xfortune extends DokuWiki_Syntax_Plugin {
+class syntax_plugin_jquotes extends DokuWiki_Syntax_Plugin {
 
     /**
      * What kind of syntax are we?
@@ -34,7 +34,7 @@ class syntax_plugin_xfortune extends DokuWiki_Syntax_Plugin {
      * Connect pattern to lexer
      */
     function connectTo($mode) {
-        $this->Lexer->addSpecialPattern('\{\{xfortune>[^}]*\}\}', $mode, 'plugin_xfortune');
+        $this->Lexer->addSpecialPattern('\{\{jquotes>[^}]*\}\}', $mode, 'plugin_jquotes');
     }
 
     /**
@@ -48,7 +48,7 @@ class syntax_plugin_xfortune extends DokuWiki_Syntax_Plugin {
         //handle params
         list($cookie, $params) = explode('?', $match, 2);
 
-        //xfortune cookie file
+        // quotes file
         $data['cookie'] = cleanID($cookie);
 
         //time interval for changing cookies
@@ -70,13 +70,13 @@ class syntax_plugin_xfortune extends DokuWiki_Syntax_Plugin {
         if($mode != 'xhtml') return false;
 
         $attr = array(
-            'class' => 'plugin_xfortune',
+            'class' => 'plugin_jquotes',
             'data-time' => $data['time'],
             'data-cookie' => $data['cookie']
         );
 
         $renderer->doc .= '<div ' . buildAttributes($attr) . '>';
-        $renderer->doc .= helper_plugin_xfortune::getCookieHTML($data['cookie']);
+        $renderer->doc .= helper_plugin_jquotes::getCookieHTML($data['cookie']);
         $renderer->doc .= '</div>';
 
         return true;

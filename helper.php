@@ -1,12 +1,12 @@
 <?php
 /**
- * Display Fortune cookies
+ * Display quotations
  *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Andreas Gohr <andi@splitbrain.org>
  */
 
-class helper_plugin_xfortune extends DokuWiki_Plugin {
+class helper_plugin_jquotes extends DokuWiki_Plugin {
 
     /**
      * Get a random cookie properly escaped
@@ -78,7 +78,7 @@ class helper_plugin_xfortune extends DokuWiki_Plugin {
     }
 
     /**
-     * Returns one random cookie
+     * Returns one quotation
      *
      * @param string $cookieID the media file id to the cookie file
      * @return string
