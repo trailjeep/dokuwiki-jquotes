@@ -20,7 +20,11 @@ jQuery(function () {
                     cookie: $self.data('cookie')
                 },
                 function (data) {
-                    $self.html(data)
+					$full = data.split('|');
+					$quote = $full[0];
+					$cite = $full[1];
+					$self.children('blockquote').children('p').html($quote),
+					$self.children('figcaption').html($cite)
                 }
             )
         }, $self.data('time') * 1000);
