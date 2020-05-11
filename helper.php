@@ -59,20 +59,9 @@ class helper_plugin_jquotes extends DokuWiki_Plugin {
      */
     static public function id2file($cookieID) {
         $file = mediaFN($cookieID);
-        $isns = is_dir($file);
-        if($isns) $cookieID .= ':dir';
-
         if(auth_quickaclcheck($cookieID) < AUTH_READ) throw new Exception("No read permissions for $cookieID");
-
-        if($isns) {
-            $dir = $file;
-            $files = glob("$dir/*.txt");
-            if(!count($files))  throw new Exception("Could not find fortune files in $cookieID");
-            $file = $files[array_rand($files)];
-        }
-
         // we now should have a valid file
-        if(!file_exists($file)) throw new Exception("No fortune file at $cookieID");
+        if(!file_exists($file)) throw new Exception("No quotes file at $cookieID");
 
         return $file;
     }
@@ -90,73 +79,26 @@ class helper_plugin_jquotes extends DokuWiki_Plugin {
             return 'ERROR: '.$e->getMessage();
         }
 
-        $dim = filesize($file);
-        if($dim < 2) return "ERROR: invalid cookie file $file";
-        mt_srand((double) microtime() * 1000000);
-        $rnd = mt_rand(0, $dim);
+        //$dim = filesize($file);
+        //if($dim < 2) return "ERROR: invalid cookie file $file";
+        //mt_srand((double) microtime() * 1000000);
+        //$rnd = mt_rand(0, $dim);
 
-        $fd = fopen($file, 'r');
-        if(!$fd) return "ERROR: reading cookie file $file failed";
+        //$fd = fopen($file, 'r');
+        //if(!$fd) return "ERROR: reading cookie file $file failed";
 
         // jump to random place in file
-        fseek($fd, $rnd);
+        //fseek($fd, $rnd);
 
-        $text = '';
-        $cookie = false;
-        while(true) {
-            $seek = ftell($fd);
-            $line = fgets($fd, 1024);
-
-            if($seek == 0) {
-                // start of file always starts a cookie
-                $cookie = true;
-                if($line == "%\n") {
-                    // ignore delimiter if exists
-                    continue;
-                } else {
-                    // part of the cookie
-                    $text .= $line;
-                    continue;
-                }
-            }
-
-            if(feof($fd)) {
-                if($cookie) {
-                    // we had a cookie already, stop here
-                    break;
-                } else {
-                    // no cookie yet, wrap around
-                    fseek($fd, 0);
-                    continue;
-                }
-            }
-
-            if($line == "%\n") {
-                if($cookie) {
-                    // we had a cookie already, stop here
-                    break;
-                } elseif($seek == $dim - 2) {
-                    // it's the end of file delimiter, wrap around
-                    fseek($fd, 0);
-                    continue;
-                } else {
-                    // start of the cookie
-                    $cookie = true;
-                    continue;
-                }
-            }
-
-            // part of the cookie?
-            if($cookie) {
-                $text .= $line;
-            }
-        }
-        fclose($fd);
-
-        $text = trim($text);
-
-        // if it is not valid UTF-8 assume it's latin1
-        if(!utf8_check($text)) return utf8_encode($text);
+		$jsonFile = file_get_contents($file);
+		//json must already be UTF8
+		$jsonArray = json_decode($jsonFile, true);
+		if (json_last_error() !== 0) return 'JSON error: '.json_last_error_msg().$e->getMessage();
+		//$i = mt_rand(0, count($jsonArray['quotes']) -1);
+		$i = array_rand($jsonArray['quotes']);
+		$quote = $jsonArray['quotes'][$i]['quote'];
+		$cite = $jsonArray['quotes'][$i]['author'];
+        $text = $quote.'|'.$cite;
 
         return $text;
     }
