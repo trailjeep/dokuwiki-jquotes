@@ -23,6 +23,7 @@ jQuery(function () {
 					$full = data.split('|');
 					$quote = $full[0];
 					$cite = $full[1];
+					$self.on('click', copy_quote),
 					$self.children('blockquote').children('p').html($quote),
 					$self.children('figcaption').html($cite)
                 }
@@ -30,4 +31,14 @@ jQuery(function () {
         }, $self.data('time') * 1000);
     });
 });
-
+function copy_quote() {
+        jQuery('figure.plugin_jquotes').fadeOut(50).fadeIn(50);
+        var $quote = jQuery('figure.plugin_jquotes > blockquote > p').text();
+        var $author = jQuery('figure.plugin_jquotes > blockquote > figcaption').text();
+        var $full = $quote + '\n\u2014' + $author;
+        var $txt = jQuery( '<textarea />' );
+        $txt.val($full).css({ width: "1px", height: "1px" }).appendTo('body');
+        $txt.select();
+        document.execCommand('copy');
+        $txt.remove();
+};
