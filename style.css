@@ -1,50 +1,50 @@
 figure.plugin_jquotes {
-        position: relative;
-    margin: 1em 0;
-        background-color: @ini_background_alt;
-        cursor: pointer;
-        color: @ini_text_alt;
-        border-radius: 0.33em;
+    margin: 1em 0.25em;
+    padding: 0.5em .75em;
+    background-color: @ini_background_alt;
+    cursor: pointer;
+    color: @ini_text_alt;
+    border-radius: 0.33em;
 }
 
 figure.plugin_jquotes > blockquote {
-        line-height: 1.5em;
-        margin: 0;
-        border: none;
-        border-radius: inherit; 
-        background-color: @ini_background_alt;
-        font-size: 1em;
+    position: relative;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: inherit; 
+    background-color: @ini_background_alt;
+    font-size: 1em;
 }
 
-figure.plugin_jquotes > blockquote::before {
-        content: "\0201c";
-        position: absolute;
-        top: 0.4em;
-        left: 0;
-        font-size: 2em;
-}
- 
-figure.plugin_jquotes > blockquote::after {
-        content: "\0201d";
-        position: absolute;
-        top: 0.4em;
-        right: 0;
-        font-size: 2em;
+figure.plugin_jquotes > blockquote p::before {
+    content: "\0201c";
+    position: absolute;
+    top: 0.25em;
+    left: -0.25em;
+    font-size: 3em;
 }
 
 figure.plugin_jquotes > blockquote > p {
-        padding: 0.25em 0.5em 0 0.5em;
-        text-align: justify;
-}
+    margin: 0 1em;
+    padding: 0;
+    text-align: justify;
+ }
 
-figure.plugin_jquotes > blockquote > p::first-letter {
-        font-size: 1.25em;
+figure.plugin_jquotes > blockquote p::after {
+    content: "\0201d";
+    position: absolute;
+    bottom: -0.25em;
+    right: -0.25em;
+    font-size: 3em;
 }
 
 figure.plugin_jquotes > figcaption {
-        padding: 0 1em 0.25em 1em;
-        font-style: italic;
-        text-align: right;
+    margin: 0 1em;
+    padding: 0;
+    font-style: italic;
+    text-align: right;
 }
 
 figure.plugin_jquotes > figcaption::before {
