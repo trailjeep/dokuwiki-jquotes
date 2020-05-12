@@ -34,7 +34,7 @@ figure.plugin_jquotes > blockquote::after {
 
 figure.plugin_jquotes > blockquote > p {
         padding: 0.25em 0.5em 0 0.5em;
-        text-align: left;
+        text-align: justify;
 }
 
 figure.plugin_jquotes > blockquote > p::first-letter {
