@@ -4,6 +4,7 @@
  *
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Andreas Gohr <andi@splitbrain.org>
+ * @author     Trailjeep <trailjeep@gmail.com>
  */
 
 class action_plugin_jquotes extends DokuWiki_Action_Plugin {

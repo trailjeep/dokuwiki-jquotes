@@ -4,6 +4,7 @@
  * Fetches a new quotation
  *
  * @author Andreas Gohr <andi@splitbrain.org>
+ * @author Trailjeep <trailjeep@gmail.com>
  */
 
 jQuery(function () {
@@ -30,6 +31,15 @@ jQuery(function () {
         }, $self.data('time') * 1000);
     });
 });
+
+/**
+  * Script for plugin_jquotes
+  *
+  * Copies quotation to the clipboard
+  *
+  * @author Trailjeep <trailjeep@gmail.com>
+  */
+
 function copy_quote() {
         jQuery('figure.plugin_jquotes').fadeOut(50).fadeIn(50);
         var $quote = jQuery('figure.plugin_jquotes > blockquote > p').text();
