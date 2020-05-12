@@ -18,11 +18,19 @@ figure.plugin_jquotes > blockquote {
     font-size: 1em;
 }
 
-figure.plugin_jquotes > blockquote p::before {
+figure.plugin_jquotes > blockquote::before {
     content: "\0201c";
     position: absolute;
-    top: 0.25em;
-    left: -0.25em;
+    top: 1rem;
+    left: -1.5rem;
+    font-size: 3em;
+}
+
+figure.plugin_jquotes > blockquote::after {
+    content: "\0201d";
+    position: absolute;
+    bottom: -2rem;
+    right: -1.5rem;
     font-size: 3em;
 }
 
@@ -30,14 +38,10 @@ figure.plugin_jquotes > blockquote > p {
     margin: 0 1em;
     padding: 0;
     text-align: left;
- }
+}
 
-figure.plugin_jquotes > blockquote p::after {
-    content: "\0201d";
-    position: absolute;
-    bottom: -0.25em;
-    right: -0.25em;
-    font-size: 3em;
+figure.plugin_jquotes > blockquote > p::first-letter {
+    font-size: 1.25em;
 }
 
 figure.plugin_jquotes > figcaption {
