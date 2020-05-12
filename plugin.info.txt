@@ -1,7 +1,7 @@
 base   jquotes
-author Andreas Gohr
-email  andi@splitbrain.org
+author trailjeep
+email  trailjeep@gmail.com
 date   2017-04-20
-name   Quotations Plugin
+name   jQuotes Plugin
 desc   Displays random quotations from JSON file
 url    http://www.dokuwiki.org/plugin:jquotes
