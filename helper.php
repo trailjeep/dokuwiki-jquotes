@@ -15,37 +15,10 @@ class helper_plugin_jquotes extends DokuWiki_Plugin {
      * @param int $maxlines
      * @return string
      */
-    static public function getCookieHTML($cookieID, $maxlines=0, $maxchars=0) {
-        if($maxlines) {
-            $cookie = self::getSmallCookie($cookieID, $maxlines, $maxchars);
-        } else {
-            $cookie = self::getCookie($cookieID);
-        }
+    static public function getCookieHTML($cookieID) {
+        $cookie = self::getCookie($cookieID);
 
         return nl2br(hsc($cookie));
-    }
-
-    /**
-     * Tries to find a cookie with a maximum number of lines
-     *
-     * gives up after a 100 tries
-     *
-     * @param $cookieID
-     * @param int $maxlines maximum lines to return
-     * @return string
-     */
-    static public function getSmallCookie($cookieID, $maxlines, $maxchars){
-        $runaway = 100;
-        $tries = 0;
-        if($maxlines < 1) $maxlines = 1;
-        if($maxchars < 1) $maxlines = 250;
-
-        do {
-            $cookie = self::getCookie($cookieID);
-            $lines = count(explode("\n", $cookie));
-        } while( ($lines > $maxlines || strlen($cookie) > $maxchars) && $tries++ < $runaway);
-
-        return $cookie;
     }
 
     /**
