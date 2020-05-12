@@ -33,7 +33,7 @@ jQuery(function () {
 function copy_quote() {
         jQuery('figure.plugin_jquotes').fadeOut(50).fadeIn(50);
         var $quote = jQuery('figure.plugin_jquotes > blockquote > p').text();
-        var $author = jQuery('figure.plugin_jquotes > blockquote > figcaption').text();
+        var $author = jQuery('figure.plugin_jquotes > figcaption').text();
         var $full = $quote + '\n\u2014' + $author;
         var $txt = jQuery( '<textarea />' );
         $txt.val($full).css({ width: "1px", height: "1px" }).appendTo('body');
