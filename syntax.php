@@ -79,7 +79,7 @@ class syntax_plugin_jquotes extends DokuWiki_Syntax_Plugin {
         $quote = $full[0];
         $cite = $full[1];
 
-        $renderer->doc .= '<figure ' . buildAttributes($attr) . '>';
+        $renderer->doc .= '<figure '.buildAttributes($attr).' onClick="copy_quote()">';
         $renderer->doc .= "<blockquote><p>$quote</p></blockquote>";
         $renderer->doc .= "<figcaption>$cite</figcaption>";
         $renderer->doc .= '</figure>';

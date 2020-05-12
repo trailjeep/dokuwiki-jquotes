@@ -23,7 +23,6 @@ jQuery(function () {
 					$full = data.split('|');
 					$quote = $full[0];
 					$cite = $full[1];
-					$self.on('click', copy_quote),
 					$self.children('blockquote').children('p').html($quote),
 					$self.children('figcaption').html($cite)
                 }
