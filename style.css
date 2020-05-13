@@ -4,7 +4,7 @@ figure.plugin_jquotes {
     background-color: @ini_background_alt;
     cursor: pointer;
     color: @ini_text_alt;
-    border-radius: 0.33em;
+    border-radius: 0.5em;
 	font-size: 1em;
 	line-height: 1.5;
 }
@@ -16,6 +16,7 @@ figure.plugin_jquotes > blockquote {
     border: none;
     border-radius: inherit; 
     background-color: @ini_background_alt;
+    font-size: 1em;
 }
 
 figure.plugin_jquotes > blockquote::before {
@@ -52,5 +53,15 @@ figure.plugin_jquotes > figcaption {
 }
 
 figure.plugin_jquotes > figcaption::before {
-        content: "\02014";
+    content: "\02014";
+}
+
+body.tpl_bootstrap3 figure.plugin_jquotes > blockquote::before {
+    top: -1.25rem;
+    left: -1.25rem;
+}
+ 
+body.tpl_bootstrap3 figure.plugin_jquotes > blockquote::after {
+    bottom: -4.5rem;
+    right: -1.25rem;
 }
