@@ -5,32 +5,32 @@ figure.plugin_jquotes {
     cursor: pointer;
     color: @ini_text_alt;
     border-radius: 0.33em;
+	font-size: 1em;
+	line-height: 1.5;
 }
 
 figure.plugin_jquotes > blockquote {
     position: relative;
-    line-height: 1.5em;
     margin: 0;
     padding: 0;
     border: none;
     border-radius: inherit; 
     background-color: @ini_background_alt;
-    font-size: 1em;
 }
 
 figure.plugin_jquotes > blockquote::before {
     content: "\0201c";
     position: absolute;
-    top: 1rem;
-    left: -1.5rem;
+    top: -0.75rem;
+    left: -0.75rem;
     font-size: 3em;
 }
 
 figure.plugin_jquotes > blockquote::after {
     content: "\0201d";
     position: absolute;
-    bottom: -2rem;
-    right: -1.5rem;
+    bottom: -2.5rem;
+    right: -0.75rem;
     font-size: 3em;
 }
 
